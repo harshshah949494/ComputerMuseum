@@ -1,0 +1,80 @@
+<html>
+	<head>
+		<title>GettingStarted</title>
+		<style>
+			
+			.div1{float:left;}
+			.div2{float:left;
+				display:inline-block;}
+			.div3{float:left;
+				display:inline-block;}
+			.div4{background-color:Dodgerblue;}
+		</style>
+	</head>
+	<body bgcolor="Limegreen">
+		<div class="div1">
+			<img src="rondlogo1.gif" width="1044px" height="649px">
+			</img>
+		</div>
+		<form method="post" action="admin1.php" onsubmit="return validate1()">
+			<div class="div2">
+				<fieldset>
+					<legend>Admin Login</legend>
+					<p>Username:<input type="text" name="a_name" id="a_name"/></p>
+					<p>Password:<input type="password" name="a_password" id="a_password"/></p>
+					<font align="center"><div class="div4"><input type="submit" value="Login" align="center"/></div></font>
+				</fieldset>
+			</div>
+		</form>
+		<form method="post" action="user.php" onsubmit="return validate2()">
+			<div class="div3">
+				<fieldset>
+					<legend>User Login</legend>
+					<p>Username:<input type="text" name="u_name" id="u_name"/></p>
+					<p>Password:<input type="password" name="u_password" id="u_password"/></p>
+					<font align="center"><div class="div4"><input type="submit" value="Login"align="center"/></div></font>
+		</form>
+		<p align="center">NEW USER...?</p>
+		<form action="p3.html">
+			<font align="center"><div class="div4"><input type="submit" value="Sign Up"/></div></font>
+		</form>
+			</fieldset>
+		</div>
+		<script>
+			function validate1()
+			{
+				var u=document.getElementById("a_name").value;
+				var a=document.getElementById("a_password").value;
+				var error="";
+				if(u==null || u=="")
+					error+="Enter Username.\n";
+				if(a==null || a=="")
+					error+="Enter Password.\n";
+				if(error.length>0)
+				{
+					alert(error);
+					return false;
+				}
+				else
+					return true;
+			}
+			function validate2()
+			{
+				var u=document.getElementById("u_name").value;
+				var a=document.getElementById("u_password").value;
+				var error="";
+				if(u==null || u=="")
+					error+="Enter Username.\n";
+				if(a==null || a=="")
+					error+="Enter Password.\n";
+				if(error.length>0)
+				{
+					alert(error);
+					return false;
+				}
+				else
+					return true;
+			}
+		</script>
+	</body>
+</html>

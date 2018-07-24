@@ -1,0 +1,153 @@
+<html>
+	<head>
+		<title>RegistrationForm</title>
+		
+	</head>
+	<body bgcolor="Limegreen">
+		<form action="newuser.php" method="post" onsubmit="return validate();">
+			<table border="2px" height="400px" width="300px" align="center">
+				<tr>
+					<th colspan="2">:Registration Form:</th>
+				</tr>
+				<tr>
+					<td>Name:</td>
+					<td><input type="text" name="name" id="name"/></td>
+				</tr>
+				<tr>
+					<td>UserName:</td>
+					<td><input type="text" name="u_name" id="u_name"/></td>
+				</tr>
+				<tr>
+					<td>Password:</td>
+					<td><input type="password" name="u_password" id="u_password"/></td>
+				</tr>
+				<tr>
+					<td>Gender:</td>
+					<td><label>Male<input type="radio" name="gender" /></label>
+					<label>Female<input type="radio" name="gender" /></label></td>
+				</tr>
+				<tr>
+					<td>City:</td>
+					<td><input type="text" name="u_city" id="u_city"/></td>
+				</tr>
+				<tr>
+					<td>State:</td>
+					<td><input type="text" name="u_state" id="u_state"/></td>
+				</tr>
+				
+				<tr>
+					<td>Pincode:</td>
+					<td><input type="text" name="pin" id="pin"/></td>
+				</tr>
+				<tr>
+					<td>PhoneNo.:</td>
+					<td><input type="text" name="u_phone" id="u_phone"/></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="submit" value="Submit" />
+					<input type="reset" value="Reset"/></td>
+				</tr>
+			</table>
+		</form>
+		<script type="text/javascript">
+		function validate()
+		{
+			var n=document.getElementById("name").value;
+			var un=document.getElementById("u_name").value;
+			var pass=document.getElementById("u_password").value;
+			var g=document.getElementsByName("gender");
+			var c=document.getElementById("u_city").value;
+			var s=document.getElementById("u_state").value;
+			var p=document.getElementById("u_phone").value;
+			var pin=document.getElementById("pin").value;
+			var error="";
+			var flag=false;
+			var f=false;
+			if(n==null|| !isNaN(n))
+				error+="Enter valid name\n";
+			else
+			{
+				for(var i=0;i<n.length;i++)
+				{
+					if(n.charAt(i)=='!' || n.charAt(i)=='@' || n.charAt(i)=='#' || n.charAt(i)=='$' || n.charAt(i)=='%' || n.charAt(i)=='^' || n.charAt(i)=='&' || n.charAt(i)=='*')	
+					{
+						flag=true;
+						break;
+					}
+				}
+			if(flag==true)
+				error+="Enter valid name\n";
+			}
+			if(un==null|| !isNaN(un))
+				error+="Enter valid username\n";
+			else
+			{
+				for(var i=0;i<un.length;i++)
+				{
+					if(un.charAt(i)=='!' || un.charAt(i)=='@' || un.charAt(i)=='#' || un.charAt(i)=='$' || un.charAt(i)=='%' || un.charAt(i)=='^' || un.charAt(i)=='&' || un.charAt(i)=='*')	
+					{
+						flag=true;
+						break;
+					}
+				}
+			if(flag==true)
+				error+="Enter valid username\n";
+			}
+			if(pass==null || pass=="")
+				error+="Enter the password.\n";
+			for(var i=0;i<g.length;i++)
+			{
+				if(g[i].checked)
+				{
+					f=true;
+					break;
+				}
+			}
+			if(f==false)
+				error+="Select Anyone Gender.\n";
+			if(c==null|| !isNaN(c))
+				error+="Enter valid City\n";
+			else
+			{
+				for(var i=0;i<c.length;i++)
+				{
+					if(c.charAt(i)=='!' || c.charAt(i)=='@' || c.charAt(i)=='#' || c.charAt(i)=='$' || c.charAt(i)=='%' || c.charAt(i)=='^' || c.charAt(i)=='&' || c.charAt(i)=='*')	
+					{
+						flag=true;
+						break;
+					}
+				}
+			if(flag==true)
+				error+="Enter valid city\n";
+			}
+			if(s==null|| !isNaN(s))
+				error+="Enter valid State\n";
+			else
+			{
+				for(var i=0;i<s.length;i++)
+				{
+					if(s.charAt(i)=='!' || s.charAt(i)=='@' || s.charAt(i)=='#' || s.charAt(i)=='$' || s.charAt(i)=='%' || s.charAt(i)=='^' || s.charAt(i)=='&' || s.charAt(i)=='*')	
+					{
+						flag=true;
+						break;
+					}
+				}
+			if(flag==true)
+				error+="Enter valid state\n";
+			}
+			if(p==null || p=="" || isNaN(p) || p.length!=10)
+				error+="Enter valid phone-no.\n";
+			
+			if(pin==null || pin=="" || isNaN(pin) || pin.length!=6)
+				error+="Enter valid pincode.\n";
+			if(error.length>0)
+			{
+				alert(error);
+				return false;
+			}
+			else
+				return true;
+		}
+		</script>
+	</body>
+</html>

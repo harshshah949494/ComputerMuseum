@@ -1,0 +1,110 @@
+<html>
+	<head>
+		<title>BUY NOW</title>
+		<link rel="stylesheet" type="text/css" href="style3.css">
+		<style>
+			body{background-image:url('background.jpg');}
+			.div1{float:right;}
+			.div2{float:left;}
+			.col{color:white;}
+			.col1{color:black;}
+			a{text-decoration:none;}
+			h1{color:Limegreen;}
+			h2{text-decoration:underline;}
+			p{color:white;}
+			.set{width:300px;height:150px;
+				align:center;}
+			.div3{display:inline-block;float:right;}
+			.div4{display:inline-block;}
+		</style>
+		<script type="text/javascript">
+			function add()
+			{
+				var a=Number(document.getElementById("text1").value);
+				var b=Number(document.getElementById("text2").value);
+				document.getElementById("text3").value=a+b;
+			}
+			function sub()
+			{
+				var a=Number(document.getElementById("text1").value);
+				var b=Number(document.getElementById("text2").value);
+				document.getElementById("text3").value=a-b;
+			}
+			function mul()
+			{
+				var a=Number(document.getElementById("text1").value);
+				var b=Number(document.getElementById("text2").value);
+				document.getElementById("text3").value=a*b;
+			}
+			function div()
+			{
+				var a=Number(document.getElementById("text1").value);
+				var b=Number(document.getElementById("text2").value);
+				document.getElementById("text3").value=a/b;
+			}
+			function validate()
+			{
+				var qty=document.getElementById("quantity").value;
+				if(qty>=5000 || qty<=0)
+				{
+					alert("Enter correct Quantity");
+					return false;
+				}
+				else
+					return true;
+			}
+		</script>
+	</head>
+	<body>
+		<div class="div1">
+			<img src="rondlogo1.gif" width="200px" height="200px">
+			</img>
+		</div>
+		<div class="div2">
+			<img src="ordernow.jpg" width="200px" height="200px"></img>
+		</div>
+		<pre>
+		
+			<h1 align="center">BUY NOW</h1>
+
+
+
+
+			<hr>		</pre>
+		<div class="div4">
+			<fieldset class="set">
+				<legend>Order Details</legend>
+				<form method="post" action="ordersubmit.php" align="left" onsubmit="return validate()">
+					Name of product:<input type="text" name="productname" readonly value="JOYSTICK"/><br>
+					Company:<select name="company"><br>
+							<option>Vaio</option>
+							<option>Lenovo</option>
+						</select><br>
+					Quantity:<input type="text" name="quantity" id="quantity"/>(Enter value < 5000 at a time)<br>
+					<input type="submit" value="Submit"/>
+				</form>
+			</fieldset>
+		</div>
+		<div class="div3">
+			<fieldset class="set">
+				<legend>Calculate Yourself</legend>
+				<form method="post">
+					<input type="text" id="text1"/>
+					<input type="text" id="text2"/>
+					<p>
+						<input type="button" value="+" onclick="add()"/>
+						<input type="button" value="-" onclick="sub()"/>
+						<input type="button" value="*" onclick="mul()"/>
+						<input type="button" value="/" onclick="div()"/>
+					</p>
+					<p>
+						Result:<input type="text" id="text3" readonly/>
+					</p>
+				</form>
+			</fieldset>
+		</div>
+		<h2>NOTE:PRICE</h2>
+			1)VAIO Joystick:Rs.450/-<br>
+			2)Lenovo Joystick:Rs.400/-<br>
+	</body>
+</html>
